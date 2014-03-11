@@ -13,6 +13,9 @@ https://blogs.monash.edu/climate/2012/12/13/the-monash-simple-climate-model/
 And see the reference publication in Climate Dynamics here:   
 http://users.monash.edu.au/~dietmard/papers/dommenget.and.floeter.greb.paper.cdym2011.pdf
 
+Please cite the model as follows:   
+Dommenget, D. and Flöter, J.: Conceptual understanding of climate change with a globally resolved energy balance model, Clim. Dyn., 37 (11-12), 2143–2165, doi:10.1007/s00382-011-1026-0, 2011.
+
 ## Prerequisites
 
 To compile this model, a fortran compiler such as gfortran must be available.
