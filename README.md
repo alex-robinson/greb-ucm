@@ -18,11 +18,16 @@ Dommenget, D. and Flöter, J.: Conceptual understanding of climate change with a
 
 ## Prerequisites
 
-To compile this model, a fortran compiler such as gfortran must be available.
+To compile this model, a fortran compiler such as gfortran must be installed already.
 
-To plot results in R using provides functions in `output/`, 
+To plot results in R using the provided functions in `output/`, 
 R must be installed (http://cran.r-project.org/) along with the library "fields"
 to be able to overlay country boundaries. 
+
+If R is already installed, the "fields" library can be installed by loading R and calling,
+```R
+install.packages("fields")
+```
 
 ## How to install, compile and run
 
