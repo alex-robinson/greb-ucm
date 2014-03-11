@@ -24,13 +24,13 @@ to be able to overlay country boundaries.
 ## How to install, compile and run
 
 1. Download the repository to your computer (either using git or the .zip file).
-2. From the command line, go to the main model directory, then run:
+From the command line, go to the main model directory.
 
 3. To compile greb-ucm with gfortran into the executable file greb.x, 
 
 make greb 
 
-4. To run greb-ucm with the model output stored in the directory "output/test",
+4. To run greb-ucm with the model output and parameters stored in the directory "output/test",
 
 ./greb.x output/test 
 
@@ -40,7 +40,7 @@ cd output/
 
 6. Call R from the output directory and load the model results using the example,
 
-R
+R \\
 source("example.r")
 
 
