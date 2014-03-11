@@ -29,6 +29,9 @@
 module mo_numerics
 !+++++++++++++++++++++++++++++++++++++++
 
+! declare output folder name (ajr, 2014-03-11)
+  character(len=256) :: outfldr 
+
 ! numerical parameter
   integer, parameter :: xdim = 96, ydim = 48          ! field dimensions
   integer, parameter :: ndays_yr  = 365               ! number of days per year
@@ -94,7 +97,7 @@ module mo_physics
   parameter( z_vapor   = 5000. )                   ! scaling height atmos. water vapor diffusion
   parameter( r_qviwv   = 2.6736e3)                 ! regres. factor between viwv and q_air  [kg/m^3]
 
-! parameter emisivity
+! parameter emissivity
   real, parameter, dimension(10) :: p_emi = (/9.0721, 106.7252, 61.5562, 0.0179, 0.0028,     &
 &                                             0.0570, 0.3462, 2.3406, 0.7032, 1.0662/)
 
@@ -147,8 +150,8 @@ subroutine greb_model
   real, dimension(xdim,ydim) :: Ts0, Ts1, Ta0, Ta1, To0, To1, q0, q1,       &
 &                               ts_ini, ta_ini, q_ini, to_ini       
 
-  open(21,file='output/control',ACCESS='DIRECT',FORM='UNFORMATTED', RECL=ireal*xdim*ydim)
-  open(22,file='output/scenario',ACCESS='DIRECT',FORM='UNFORMATTED', RECL=ireal*xdim*ydim)
+  open(21,file=trim(outfldr)//'control',ACCESS='DIRECT',FORM='UNFORMATTED', RECL=ireal*xdim*ydim)
+  open(22,file=trim(outfldr)//'scenario',ACCESS='DIRECT',FORM='UNFORMATTED', RECL=ireal*xdim*ydim)
 
   dTrad = -0.16*Tclim -5. ! offset Tatmos-rad
 
