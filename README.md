@@ -26,26 +26,19 @@ to be able to overlay country boundaries.
 1. Download the repository to your computer (either using git or the .zip file).
 From the command line, go to the main model directory.
 
-3. To compile greb-ucm with gfortran into the executable file `greb.x`, 
-
+2. To compile greb-ucm with gfortran into the executable file `greb.x`, 
 ```
 make greb 
 ```
-
-4. To run greb-ucm with the model output and parameters stored in the directory `output/test`,
-
+3. To run greb-ucm with the model output and parameters stored in the directory `output/test`,
 ```
 ./greb.x output/test 
 ```
-
-5. Go to the main output directory,
-
+4. Go to the main output directory,
 ```
 cd output/
 ```
-
-6. Call R from the output directory and load the model results using the example,
-
+5. Call R from the output directory and load the model results using the example,
 ```
 R
 ```
