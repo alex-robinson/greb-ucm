@@ -1,5 +1,6 @@
 
 # Load functions
+source("functions.r")
 source("functions_greb.r")
 
 # Tmm  : near surface temperature, monthly mean
@@ -36,7 +37,7 @@ if (FALSE) {
     
     # Plot style    
     greb_plotpar()
-    par(mfrow=c(5,1),plt=c(0.06,0.95,0.15,0.90))
+    par(mfrow=c(5,1),plt=c(0.06,0.95,0.15,0.88))
 
     xlim = range(greb_ts$time)
 
@@ -80,25 +81,25 @@ if (FALSE) {
     greb_plotpar()
     par(mfrow=c(3,2),plt=c(0.1,0.95,0.1,0.90))
 
-    image.plot(greb$lon,greb$lat,apply(greb$Tmm[,,kk],MARGIN=c(1,2),FUN=mean),ann=FALSE)
+    myimage(greb$lon,greb$lat,apply(greb$Tmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Near-surface temp. (K)",line=0.5)
-    world(add=TRUE,lwd=1)
+    #world(add=TRUE,lwd=1)
 
-    image.plot(greb$lon,greb$lat,apply(greb$Tamm[,,kk],MARGIN=c(1,2),FUN=mean),ann=FALSE)
+    myimage(greb$lon,greb$lat,apply(greb$Tamm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Atmospheric temp. (K)",line=0.5)
-    world(add=TRUE,lwd=1)
-    
-    image.plot(greb$lon,greb$lat,apply(greb$Tomm[,,kk],MARGIN=c(1,2),FUN=mean),ann=FALSE)
+    #world(add=TRUE,lwd=1)
+
+    myimage(greb$lon,greb$lat,apply(greb$Tomm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Oceanic temp. (K)",line=0.5)
-    world(add=TRUE,lwd=1)
-    
-    image.plot(greb$lon,greb$lat,apply(greb$qmm[,,kk],MARGIN=c(1,2),FUN=mean),ann=FALSE)
+    #world(add=TRUE,lwd=1)
+
+    myimage(greb$lon,greb$lat,apply(greb$qmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Atmospheric moisture content (kg m^-2)",line=0.5)
-    world(add=TRUE,lwd=1)
-    
-    image.plot(greb$lon,greb$lat,apply(greb$apmm[,,kk],MARGIN=c(1,2),FUN=mean),ann=FALSE)
+    #world(add=TRUE,lwd=1)
+
+    myimage(greb$lon,greb$lat,apply(greb$apmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Planetary albedo",line=0.5)
-    world(add=TRUE,lwd=1)
+    #world(add=TRUE,lwd=1)
     
 }
 

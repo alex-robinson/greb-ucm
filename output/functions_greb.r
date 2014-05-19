@@ -127,24 +127,16 @@ greb_load <- function(path,filename,year0=1970,nyr=3,xdim=96,ydim=48,ireal=4)
 greb_calc_timeseries <- function(dat,ii=c(1:length(dat$lon)),jj=c(1:length(dat$lat)))
 {   # Take 2D greb data and calculate time series over a specific region
 
-    area = gridarea(dat$lon,dat$lat)
+    area = gridarea(dat$lon[ii],dat$lat[jj])
 
     out = dat[c("time","month","year")]
-    out$Tmm  = apply(dat$Tmm[ii,jj,], MARGIN=3,FUN=mean.areawt,area=area)
-    out$Tamm = apply(dat$Tamm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area)
-    out$Tomm = apply(dat$Tomm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area)
-    out$qmm  = apply(dat$qmm[ii,jj,], MARGIN=3,FUN=mean.areawt,area=area)
-    out$apmm = apply(dat$apmm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area)
+    out$Tmm  = apply(dat$Tmm[ii,jj,], MARGIN=3,FUN=mean.areawt,area=area[ii,jj])
+    out$Tamm = apply(dat$Tamm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area[ii,jj])
+    out$Tomm = apply(dat$Tomm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area[ii,jj])
+    out$qmm  = apply(dat$qmm[ii,jj,], MARGIN=3,FUN=mean.areawt,area=area[ii,jj])
+    out$apmm = apply(dat$apmm[ii,jj,],MARGIN=3,FUN=mean.areawt,area=area[ii,jj])
 
     return(out)
-}
-
-
-greb_plot <- function(dat)
-{
-
-
-    
 }
 
 

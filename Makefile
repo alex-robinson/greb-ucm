@@ -29,7 +29,7 @@ ifeq ($(ifort),1)
 	ifeq ($(debug), 1)
 	    DFLAGS   = -w -C -traceback -ftrapuv -fpe0 -check all -vec-report0
 	else
-	    DFLAGS   = -vec-report0 -O3 -assume byterecl -xhost -align all -fno-alias
+	    DFLAGS   = -vec-report0 -O -assume byterecl -xhost -align all -fno-alias
 	endif
 else
 	## GFORTRAN OPTIONS ##
@@ -39,7 +39,7 @@ else
 	ifeq ($(debug), 1)
 	    DFLAGS   = -w -p -ggdb -ffpe-trap=invalid,zero,overflow,underflow -fbacktrace -fcheck=all
 	else
-	    DFLAGS   = -O3
+	    DFLAGS   = -O
 	endif
 endif
 
