@@ -15,9 +15,8 @@ if (FALSE) {
     # Where is the experiment stored, relative to current directory
     path = "default"
 
-    # Load boundary data (the same for all experiments)
-    grebb = greb_load_boundaries("../input")    # Boundary data
-    area  = gridarea(grebb$lon,grebb$lat)
+    # # Load boundary data (the same for all experiments)
+    # grebb = greb_load_boundaries("../input")    # Boundary data
 
     # Load the parameters, input data and model output
     par   = greb_load_parameters(path)
@@ -83,24 +82,24 @@ if (FALSE) {
 
     myimage(greb$lon,greb$lat,apply(greb$Tmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Near-surface temp. (K)",line=0.5)
-    #world(add=TRUE,lwd=1)
+    contour(greb$lon,greb$lat,greb$mask,add=TRUE,drawlabels=FALSE)
 
     myimage(greb$lon,greb$lat,apply(greb$Tamm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Atmospheric temp. (K)",line=0.5)
-    #world(add=TRUE,lwd=1)
+    contour(greb$lon,greb$lat,greb$mask,add=TRUE,drawlabels=FALSE)
 
     myimage(greb$lon,greb$lat,apply(greb$Tomm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Oceanic temp. (K)",line=0.5)
-    #world(add=TRUE,lwd=1)
+    contour(greb$lon,greb$lat,greb$mask,add=TRUE,drawlabels=FALSE)
 
     myimage(greb$lon,greb$lat,apply(greb$qmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Atmospheric moisture content (kg m^-2)",line=0.5)
-    #world(add=TRUE,lwd=1)
+    contour(greb$lon,greb$lat,greb$mask,add=TRUE,drawlabels=FALSE)
 
     myimage(greb$lon,greb$lat,apply(greb$apmm[,,kk],MARGIN=c(1,2),FUN=mean))
     title("Planetary albedo",line=0.5)
-    #world(add=TRUE,lwd=1)
-    
+    contour(greb$lon,greb$lat,greb$mask,add=TRUE,drawlabels=FALSE)
+
 }
 
 

@@ -48,9 +48,11 @@ greb_load_boundaries <- function(path,xdim=96,ydim=48,ireal=4)
         dat[[vars$nm[q]]] = load_binary(file.path(path,vars$fnm[q]),dims=c(xdim,ydim,nstep_yr),ireal=ireal,ii=lon1$ii)
     }
 
-    
     # Calculate some additional variables
     dat$winduv = sqrt(dat$windu^2 + dat$windv^2)
+
+    dat$mask = array(0,dim=dim(dat$z_topo))
+    dat$mask[dat$z_topo>0] = 1
 
     cat("done.\n")
 
@@ -118,6 +120,11 @@ greb_load <- function(path,filename,year0=1970,nyr=3,xdim=96,ydim=48,ireal=4)
     dat$Tomm = tmp[lon1$ii,,3,]
     dat$qmm  = tmp[lon1$ii,,4,]
     dat$apmm = tmp[lon1$ii,,5,]
+
+    # Generate the topography mask too 
+    dat$z_topo = load_binary(file.path("../input","topography"),dims=c(xdim,ydim),ireal=ireal,ii=lon1$ii)
+    dat$mask = array(0,dim=dim(dat$z_topo))
+    dat$mask[dat$z_topo>0] = 1
 
     cat("done.\n")
 
